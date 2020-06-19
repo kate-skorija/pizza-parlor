@@ -14,6 +14,21 @@ Order.prototype.addPizza = function(pizza) {
   pizza.id = this.assignId();
   this.orderCost += pizza.cost;
   this.pizzas.push(pizza);
+}
+
+Order.prototype.deletePizza = function(id) {
+  for (let index = 0; index < this.pizzas.length; index++) {
+    if (this.pizzas[index]) {
+      if (this.pizzas[index].id == id) {
+        console.log(this.pizzas[index])
+        delete this.pizzas[index];
+        return this.orderCost -= pizzas[index].cost
+      }
+    }
+  };
+  return false;
+}
+
 
 // Business Logic for Pizzas ------------------------
 function Pizza(size, toppings, cost, id) {
@@ -44,14 +59,22 @@ function displayPizzas(order) {
   let pizzasList = $("ul#userPizzas");
   let pizzaInfo = "";
   order.pizzas.forEach(function(pizza) {
-    pizzaInfo += "<li class=" + pizza.id + ">" + "<strong>" + "Pizza " + pizza.id + "</strong>" + ", " + pizza.size + ", " + pizza.toppings + ", " + "$" + pizza.cost + ".00" + "</li>";
+    pizzaInfo += "<li id=" + pizza.id + ">" + "<strong>" + "Pizza " + pizza.id + "</strong>" + ", " + pizza.size + ", " + pizza.toppings + ", " + "$" + pizza.cost + ".00" + "</li><button class='deleteButton' id=" + pizza.id + ">Delete</button>";
   });
   pizzasList.html(pizzaInfo);
 }
 
+function deleteItem(order) {
+  $(".delete").on("click", ".deleteButton", function() {
+    order.deletePizza(this.id)
+    $(".userTotal").text("$" + userOrder.orderCost + ".00")
+  });
+  console.log(order);
+}
+
 $(document).ready(function() {
   let userOrder = new Order();
-  $("#anotherPizza").click(function(event) {                           // UI for "Checkout" Button
+  $("#anotherPizza").click(function(event) {                           // UI for "Add Pizza" Button
     event.preventDefault();
     const userSize = $("#userSize").val();
     const userToppings = [];
@@ -63,39 +86,13 @@ $(document).ready(function() {
     userOrder.addPizza(newPizza)
     document.getElementById("pizzaForm").reset();
     displayPizzas(userOrder);
+    deleteItem(newPizza, userOrder);
     $(".userTotal").text("$" + userOrder.orderCost + ".00")
   });
-  $("#checkout").click(function(event) {                              // UI for "Add Another Pizza" Button
+  $("#checkout").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
-    const userSize = $("#userSize").val();
-    const userToppings = [];
-    $("input:checkbox[name=toppings]:checked").each(function() {
-      userToppings.push($(this).val());
-    });
-    let newPizza = new Pizza(userSize, userToppings);
-    newPizza.cost = newPizza.sizeCost(userSize)
-    userOrder.addPizza(newPizza)
-    displayPizzas(userOrder);
+    $("#displayTotal").show();
     $(".userTotal").text("$" + userOrder.orderCost + ".00")
   });
 });
 
-
-// Order.prototype.deletePizza = function(id) {
-//   for (let index = 0; index < this.pizzas.length; index++) {
-//     if (this.pizzas[index]) {
-//       if (this.pizzas[index].id == id) {
-//         delete this.pizzas[index];
-//         return true;
-//       }
-//     }
-//   };
-//   return false;
-// }
-
-// function deletePizzas(order, pizza)
-//   let button = $(".delete");
-//   button.append("<button class='deleteButton' id=" + pizza.id + ">Delete</button>");
-//   $(".delete").on("click", ".delete", function() {
-//     order.deletePizza(this.id)
-//   })
