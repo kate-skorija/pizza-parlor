@@ -90,12 +90,25 @@ $(document).ready(function() {
     document.getElementById("pizzaForm").reset();
     displayPizzas(userOrder);
     // deleteItem(newPizza, userOrder);
-    // $(".userTotal").text("$" + userOrder.orderCost + ".00")
   });
   $("#checkout").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
     $("#displayTotal").show();
     $(".userTotal").text("$" + userOrder.orderCost + ".00")
+  });
+  $("#carryout").click(function(event) {                              // UI for "Checkout" Button
+    event.preventDefault();
+    $("#carryoutInfo").show();
+    $("#delivery").hide();
+  });
+  $("#delivery").click(function(event) {                              // UI for "Checkout" Button
+    event.preventDefault();
+    $("#deliveryInfo").show();
+    $("#carrout").hide();
+  });
+  $("#orderDelivery").click(function(event) {                              // UI for "Checkout" Button
+    event.preventDefault();
+    $("#deliveryMessage").show();
   });
 });
 
