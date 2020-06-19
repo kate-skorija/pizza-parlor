@@ -110,11 +110,21 @@ $(document).ready(function() {
   });
   $("#delivery").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
+    $("#delivery").hide();
     $("#deliveryInfo").show();
     $("#carryout").hide();
   });
   $("#orderDelivery").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
+    $("span.orderName").text(userOrder.name);
+    $(".deliveryMessage").show();
+    $("#orderDelivery").hide();
+  });
+  $("h1").click(function(event) {
+    $("#pizzaForm").show();
+    $("#displayPizzas").hide();
+    $("#displayTotal").hide();
+    document.getElementById("pizzaForm").reset();
   });
 });
 

@@ -15,7 +15,7 @@
   display: none;
 }
 
-#deliveryMessage {
+.deliveryMessage {
   display: none;
 }
 /* Buttons */
