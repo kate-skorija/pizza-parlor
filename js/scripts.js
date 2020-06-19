@@ -95,20 +95,22 @@ $(document).ready(function() {
     event.preventDefault();
     $("#displayTotal").show();
     $(".userTotal").text("$" + userOrder.orderCost + ".00")
+    $("#pizzaForm").hide();
+    $("#checkout").hide();
   });
   $("#carryout").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
     $("#carryoutInfo").show();
+    $(".orderName").text($("#orderName").val());
     $("#delivery").hide();
   });
   $("#delivery").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
     $("#deliveryInfo").show();
-    $("#carrout").hide();
+    $("#carryout").hide();
   });
   $("#orderDelivery").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
-    $("#deliveryMessage").show();
   });
 });
 

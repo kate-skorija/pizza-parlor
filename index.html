@@ -3,6 +3,7 @@
   <head>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Kirang+Haerang&family=Nanum+Gothic&display=swap" rel="stylesheet">
     <script src="js/jquery-3.5.1.js"></script>
     <script src="js/scripts.js"></script>
     <meta charset="UTF-8">
@@ -17,6 +18,11 @@
       </header>
       <main>
         <form id="pizzaForm">
+          <div class="form-group">
+            <label class="customerName" for="name">Order Name:
+              <input id="orderName" class="form-control" type="text" required>
+            </label>
+          </div>
           <div class="form-group">
             <h2>Size:</h2>
             <select class="form-control" id="userSize">
@@ -80,17 +86,16 @@
           <p><span class="userTotal"></span></p>
           <button class="btn" id="carryout">Carryout</button>
           <button class="btn" id="delivery">Delivery</button>
-            <p id="carryoutInfo">Your pizza will be ready in 15 minutes. See you then!<br>
-              HOT PIES<br>
+            <div id="carryoutInfo">
+              <p class="hooray">Order Complete!</p>
+              <p class="orderInfo"><span class="orderName"></span>, your pizza will be ready in 15 minutes. See you then!</p>
+              <p>HOT PIES<br>
               333 SE 33rd Place<br>
-              Porland, OR 54321
-            </p>
+              Porland, OR 54321</p>
+            </div>
             <div id="deliveryInfo">
               <form id="deliveryForm">
                 <div class="form-group">
-                  <label for="name">Your Name:
-                    <input id="name" class="form-control" type="text" required>
-                  </label>
                   <label for="street">Street Address:
                     <input id="street" class="form-control" type="text" required>
                   </label>
@@ -98,14 +103,15 @@
                     <input id="city" class="form-control" type="text" required>
                   </label>
                   <button class="btn" id="orderDelivery">Submit</button>
-                  <p id="deliveryMessage">A Hot Pies delivery driver will be there in 20-40 minutes.</p>
+                  <p class="deliveryMessage hooray">Order Complete!</p>
+                  <p class="deliveryMessage orderInfo">A Hot Pies delivery driver will be there in 20-40 minutes.</p>
                 </div>
               </form>
             </div>
           </div>
       </main>
       <footer>
-        <h4>Thank you for choosing HOT PIES! The best pizza in all the land. </h4>      
+        <p>Thank you for choosing <span class="hooray">Hot Pies</span>! The best pizza in all the land. </p>      
       </footer>
     </div>
   </body>

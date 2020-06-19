@@ -25,21 +25,57 @@
 
 /* Header */
 header {
-  padding: 60px 60px 40px 0;
+  padding-bottom: 20px;
+}
+
+header h1 {
+  font-size: 125px;
+  font-family: 'Kirang Haerang', cursive;
 }
 header p {
-  font-size: 25px;
+  font-size: 30px;
+  font-family: 'Do Hyeon', sans-serif;
+
 }
 
 /* Body */
 body {
   padding: 30px;
+  font-family: 'Nanum Gothic', sans-serif;
+
 }
 .form-group {
   padding-bottom: 20px;
 }
 
+h2 {
+  font-size: 35px;
+  font-family: 'Kirang Haerang', cursive;
+}
+
+h3 {
+  font-size: 30px;
+  font-family: 'Kirang Haerang', cursive;
+}
+
+.hooray {
+  font-size: 50px;
+  font-family: 'Kirang Haerang', cursive;
+}
+
+.orderInfo {
+  font-size: 20px;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.customerName {
+  font-size: 35px;
+  font-family: 'Kirang Haerang', cursive;
+}
+
 /* Footer */
 footer {
   padding: 50px 50px 50px 0;
+  font-size: 25px;
+  font-family: 'Do Hyeon', sans-serif;
 }
