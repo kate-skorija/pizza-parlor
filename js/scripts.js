@@ -15,22 +15,26 @@ Pizza.prototype.sizeCost = function() {
   }
   return sizeCost;
 }
-  
 
 // User Interface Logic ------------------
 
 $(document).ready(function() {
-  let userPizza = new Pizza(userSize);
+  let userPizza = new Pizza();
   $("form").submit(function(event) {
     event.preventDefault();
-
+    
     const userSize = $("#userSize").val();
-    console.log(userSize);
+    let userToppings = [];
+    $("input:checkbox[name=toppings]:checked").each(function() {
+      userToppings.push($(this).val());
+    });
 
+    userPizza.size = userSize
+    userPizza.toppings = userToppings
     userPizza.cost = userPizza.sizeCost(userSize)
 
     $("#displayTotal").show();
     $(".userTotal").text("$" + userPizza.cost + ".00")
-
+    console.log(userPizza);
   });
 })
