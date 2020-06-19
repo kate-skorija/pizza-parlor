@@ -1,8 +1,9 @@
 // Business Logic for Order -----------------------
 
 function Order() {
-  this.pizzas = [];
-  this.currentId = 0;
+  this.pizzas = [],
+  this.orderCost = 0,
+  this.currentId = 0
 }
 
 Order.prototype.assignId = function() {
@@ -12,6 +13,7 @@ Order.prototype.assignId = function() {
 
 Order.prototype.addPizza = function(pizza) {
   pizza.id = this.assignId();
+  this.orderCost += pizza.cost;
   this.pizzas.push(pizza);
 }
 
@@ -31,7 +33,7 @@ Order.prototype.deletePizza = function(id) {
 function Pizza(size, toppings, cost, id) {
   this.size = size,
   this.toppings = toppings,
-  this.cost = cost
+  this.cost = cost,
   this.id = id
 }
 
@@ -57,9 +59,7 @@ Pizza.prototype.sizeCost = function() {
 
 $(document).ready(function() {
   let userOrder = new Order();
-  
- 
-  $("#checkout").click(function(event) {                           // UI for Checkout Button
+  $("#anotherPizza").click(function(event) {                           // UI for Checkout Button
     event.preventDefault();
       
     const userSize = $("#userSize").val();
@@ -71,9 +71,10 @@ $(document).ready(function() {
     let newPizza = new Pizza(userSize, userToppings);
     newPizza.cost = newPizza.sizeCost(userSize)
     userOrder.addPizza(newPizza)
-
+    
+    document.getElementById("pizzaForm").reset();
     $("#displayTotal").show();
-    $(".userTotal").text("$" + newPizza.cost + ".00")
+    $(".userTotal").text("$" + userOrder.orderCost + ".00")
     console.log(newPizza);
     console.log(userOrder);
   });
