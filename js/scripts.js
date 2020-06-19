@@ -1,5 +1,6 @@
 // Business Logic for Order -----------------------
 function Order() {
+  this.name = name,
   this.pizzas = [],
   this.orderCost = 0,
   this.currentId = 0
@@ -75,6 +76,7 @@ function displayPizzas(order) {
 
 $(document).ready(function() {
   let userOrder = new Order();
+  
   $("#anotherPizza").click(function(event) {                           // UI for "Add Pizza" Button
     event.preventDefault();
     const userSize = $("#userSize").val();
@@ -87,9 +89,11 @@ $(document).ready(function() {
     let newPizza = new Pizza(userSize, userCrust, userSauce, userToppings);
     newPizza.cost = newPizza.sizeCost(userSize)
     userOrder.addPizza(newPizza)
+    userOrder.name = $("#orderName").val();
     document.getElementById("pizzaForm").reset();
     displayPizzas(userOrder);
     // deleteItem(newPizza, userOrder);
+    console.log(userOrder);
   });
   $("#checkout").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
@@ -100,8 +104,8 @@ $(document).ready(function() {
   });
   $("#carryout").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
+    $("span.orderName").text(userOrder.name);
     $("#carryoutInfo").show();
-    $(".orderName").text($("#orderName").val());
     $("#delivery").hide();
   });
   $("#delivery").click(function(event) {                              // UI for "Checkout" Button
