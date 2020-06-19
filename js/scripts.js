@@ -99,6 +99,7 @@ $(document).ready(function() {
     event.preventDefault();
     $("#displayTotal").show();
     $(".userTotal").text("$" + userOrder.orderCost + ".00")
+    $("form").hide();
     $("#pizzaForm").hide();
     $("#checkout").hide();
   });

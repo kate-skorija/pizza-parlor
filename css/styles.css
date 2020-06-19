@@ -21,7 +21,10 @@
 
 /* Header -------------------------------------------------*/
 header {
-  padding-bottom: 50px;
+  /* padding-top: 20px; */
+  padding-bottom: 30px;
+  background-color: white;
+  width: 100%
 }
 
 header h1 {
@@ -36,9 +39,24 @@ header p {
 
 /* Body ----------------------------------------------------*/
 body {
-  padding: 30px;
   font-family: 'Nanum Gothic', sans-serif;
+}
 
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 85%;
+  padding: 40px 10px;
+}
+
+main {
+  padding-top: 20px; 
+  background-color: lightsalmon;
 }
 
 h2 {
@@ -56,8 +74,8 @@ input {
 }
 
 img {
-  max-width 100%;
-  width: 110px;
+  max-width: 100%;
+  width: 90px;
   height: auto;
   margin-left: 10px;
   padding-bottom: 0;
@@ -87,4 +105,12 @@ footer {
   padding: 50px 50px 50px 0;
   font-size: 25px;
   font-family: 'Do Hyeon', sans-serif;
+  background-color: lightcyan;
+}
+
+/* Media Queries */
+@media screen and (max-width: 570px) {
+  img {
+    display: none;
+  }
 }
