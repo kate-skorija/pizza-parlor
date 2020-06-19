@@ -41,44 +41,54 @@ Pizza.prototype.fullPizza = function() {
 
 Pizza.prototype.sizeCost = function() {
   let sizeCost = 4;
-  if (this.size === "medium") {
-    cost += 4;
-  } else if (this.size === "large") {
-    cost += 6;
+  if (this.size === "Medium") {
+    sizeCost += 4;
+  } else if (this.size === "Large") {
+    sizeCost += 6;
   }
+  this.toppings.forEach(function(topping) {
+    sizeCost +=2;
+  });
   return sizeCost;
 }
+
 
 // User Interface Logic ------------------
 
 $(document).ready(function() {
   let userOrder = new Order();
-  let userPizza = new Pizza();
-  userOrder.addPizza(userPizza);
-
-  let userToppings = [];
-  userPizza.size = userSize
-  userPizza.toppings = userToppings
-  userPizza.cost = userPizza.sizeCost(userSize)
-
+  
+ 
   $("#checkout").click(function(event) {                           // UI for Checkout Button
     event.preventDefault();
-    
+      
     const userSize = $("#userSize").val();
+    const userToppings = [];
     $("input:checkbox[name=toppings]:checked").each(function() {
       userToppings.push($(this).val());
     });
+    
+    let newPizza = new Pizza(userSize, userToppings);
+    newPizza.cost = newPizza.sizeCost(userSize)
+    userOrder.addPizza(newPizza)
 
     $("#displayTotal").show();
-    $(".userTotal").text("$" + userPizza.cost + ".00")
-    console.log(userPizza);
+    $(".userTotal").text("$" + newPizza.cost + ".00")
+    console.log(newPizza);
+    console.log(userOrder);
   });
-  $("#anotherPizza").click(function(event) {                      // UI for Add Another Pizza Button
-    event.preventDefault();
+});
+//   $("#anotherPizza").click(function(event) {                      // UI for Add Another Pizza Button
+//     event.preventDefault();
 
 
 
-    $("#displayTotal").show();
-    $(".userTotal").text("$" + userPizza.cost + ".00")
-  });
-}
+//     $("#displayTotal").show();
+//     $(".userTotal").text("$" + newPizza.cost + ".00")
+//   });
+// });
+
+
+ // userPizza.size = userSize
+    // userPizza.toppings = userToppings
+    // 
