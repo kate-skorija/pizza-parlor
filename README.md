@@ -6,7 +6,7 @@
 
 ## Description
 
-This website let's users create a pizza to order, and provides them with an order price dependent upon their selections. It was created to practice using constructors and prototypes in JavaScript. You may view the published site on [GitHub Pages](https://kate-skorija.github.io/xxx).
+This is a website for a fictional pizza restaurant. It lets users add pizzas to an order, and provides them with an order price dependent upon their selections. It was created to practice using constructors and prototypes in JavaScript. You may view the published site on [GitHub Pages](https://kate-skorija.github.io/xxx).
 
 ## Specifications
 

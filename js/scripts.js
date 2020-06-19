@@ -17,20 +17,6 @@ Order.prototype.addPizza = function(pizza) {
   this.pizzas.push(pizza);
 }
 
-// Order.prototype.deletePizza = function(id) {
-//   for (let index = 0; index < this.pizzas.length; index++) {
-//     if (this.pizzas[index]) {
-//       if (this.pizzas[index].id == id) {
-//         console.log(this.pizzas[index])
-//         delete this.pizzas[index];
-//         return this.orderCost -= pizzas[index].cost
-//       }
-//     }
-//   };
-//   return false;
-// }
-
-
 // Business Logic for Pizzas ------------------------
 function Pizza(size, crust, sauce, toppings, cost, id) {
   this.size = size,
@@ -62,21 +48,13 @@ function displayPizzas(order) {
   let pizzasList = $("ul#userPizzas");
   let pizzaInfo = "";
   order.pizzas.forEach(function(pizza) {
-    pizzaInfo += "<li id=" + pizza.id + ">" + "<strong>" + "Pizza " + pizza.id + "</strong>" + ", " + pizza.size + ", " + pizza.crust + ", " + pizza.sauce + ", " + pizza.toppings + ", " + "$" + pizza.cost + ".00" + "</li>"; //<button class='deleteButton' id=" + pizza.id + ">Delete</button>
+    pizzaInfo += "<li id=" + pizza.id + ">" + "<strong>" + "Pizza " + pizza.id + "</strong>" + ", " + pizza.size + ", " + pizza.crust + ", " + pizza.sauce + ", " + pizza.toppings + ", " + "$" + pizza.cost + ".00" + "</li>"; 
   });
   pizzasList.html(pizzaInfo);
 }
 
-// function deleteItem(order) {
-//   $(".delete").on("click", ".deleteButton", function() {
-//     order.deletePizza(this.id)
-//     $(".userTotal").text("$" + userOrder.orderCost + ".00")
-//   });
-// }
-
 $(document).ready(function() {
   let userOrder = new Order();
-  
   $("#anotherPizza").click(function(event) {                           // UI for "Add Pizza" Button
     event.preventDefault();
     const userSize = $("#userSize").val();
@@ -92,7 +70,6 @@ $(document).ready(function() {
     userOrder.name = $("#orderName").val();
     document.getElementById("pizzaForm").reset();
     displayPizzas(userOrder);
-    // deleteItem(newPizza, userOrder);
     console.log(userOrder);
   });
   $("#checkout").click(function(event) {                              // UI for "Checkout" Button
@@ -103,29 +80,28 @@ $(document).ready(function() {
     $("#pizzaForm").hide();
     $("#checkout").hide();
   });
-  $("#carryout").click(function(event) {                              // UI for "Checkout" Button
+  $("#carryout").click(function(event) {                              // UI for "Carryout" Button  
     event.preventDefault();
     $("span.orderName").text(userOrder.name);
     $("#carryoutInfo").show();
     $("#delivery").hide();
   });
-  $("#delivery").click(function(event) {                              // UI for "Checkout" Button
+  $("#delivery").click(function(event) {                              // UI for "Delivery" Button 
     event.preventDefault();
     $("#delivery").hide();
     $("#deliveryInfo").show();
     $("#carryout").hide();
   });
-  $("#orderDelivery").click(function(event) {                              // UI for "Checkout" Button
+  $("#orderDelivery").click(function(event) {                         // UI for "Submit Delivery" Button                  
     event.preventDefault();
     $("span.orderName").text(userOrder.name);
     $(".deliveryMessage").show();
     $("#orderDelivery").hide();
   });
-  $("h1").click(function(event) {
+  $("h1").click(function(event) {                                     // UI for clickable header
     $("#pizzaForm").show();
     $("#displayPizzas").hide();
     $("#displayTotal").hide();
     document.getElementById("pizzaForm").reset();
   });
 });
-
