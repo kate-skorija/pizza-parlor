@@ -1,4 +1,4 @@
-/* Hidden Outputs */
+/* Hidden Outputs -----------------------------------------*/
 #displayTotal {
   display: none;
 }
@@ -18,14 +18,10 @@
 .deliveryMessage {
   display: none;
 }
-/* Buttons */
-.btn {
-  margin: 15px;
-}
 
-/* Header */
+/* Header -------------------------------------------------*/
 header {
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 }
 
 header h1 {
@@ -38,15 +34,12 @@ header p {
 
 }
 
-/* Body */
+/* Body ----------------------------------------------------*/
 body {
   padding: 30px;
   font-family: 'Nanum Gothic', sans-serif;
 
 }
-/* .form-group {
-  padding-bottom: 10px;
-} */
 
 h2 {
   font-size: 35px;
@@ -62,6 +55,19 @@ input {
   font-family:'Nanum Gothic', sans-serif;
 }
 
+img {
+  max-width 100%;
+  width: 110px;
+  height: auto;
+  margin-left: 10px;
+  padding-bottom: 0;
+}
+
+#customerName {
+  font-size: 35px;
+  font-family: 'Kirang Haerang', cursive;
+}
+
 .hooray {
   font-size: 50px;
   font-family: 'Kirang Haerang', cursive;
@@ -72,12 +78,11 @@ input {
   font-family: 'Do Hyeon', sans-serif;
 }
 
-.customerName {
-  font-size: 35px;
-  font-family: 'Kirang Haerang', cursive;
+.btn {
+  margin: 15px;
 }
 
-/* Footer */
+/* Footer -------------------------------------------------*/
 footer {
   padding: 50px 50px 50px 0;
   font-size: 25px;
