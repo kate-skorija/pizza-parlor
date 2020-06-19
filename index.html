@@ -12,8 +12,8 @@
   <body>
     <div class="container">
       <header>
-        <h1>The Pizza Parlor</h1>
-        <p>Create your perfect pizza!</p>
+        <h1>Hot Pies</h1>
+        <p>Order your favorite hot pie for carryout or delivery.</p>
       </header>
       <main>
         <form id="pizzaForm">
@@ -23,25 +23,81 @@
               <option>Medium</option>
               <option>Large</option>
             </select>
-          
+            <h2>Crust:</h2>
+            <select class="form-control" id="userCrust">
+              <option>Hand-Tossed</option>
+              <option>Thin</option>
+              <option>Deep Dish</option>
+            </select>
+            <h2>Sauce:</h2>
+            <select class="form-control" id="userSauce">
+              <option>Marinara</option>
+              <option>Pesto</option>
+              <option>BBQ Sauce</option>
+              <option>Olive Oil</option>
+              <option>Alfredo</option>
+            </select>
           <div class="form-group">
             <h2>Toppings:</h2>
-            <input type="checkbox" name="toppings" value=" Pepperoni"> Pepperoni<br>
-            <input type="checkbox" name="toppings" value=" Jalepeños"> Jalepeños<br>
-            <input type="checkbox" name="toppings" value=" Pineapple"> Pineapple<br>
-            <input type="checkbox" name="toppings" value=" Extra Cheese"> Extra Cheese<br>
+            <div class="row">
+              <div class="col-sm-2">
+                <input type="checkbox" name="toppings" value=" Pepperoni"> Pepperoni<br>
+                <input type="checkbox" name="toppings" value=" Jalepeños"> Jalepeños<br>
+                <input type="checkbox" name="toppings" value=" Pineapple"> Pineapple<br>
+                <input type="checkbox" name="toppings" value=" Extra Cheese"> Extra Cheese<br>
+              </div>
+              <div class="col-sm-2">
+                <input type="checkbox" name="toppings" value=" Spinach"> Spinach<br>
+                <input type="checkbox" name="toppings" value=" Bacon"> Bacon<br>
+                <input type="checkbox" name="toppings" value=" Banana Peppers"> Banana Peppers<br>
+                <input type="checkbox" name="toppings" value=" Italian Sausage"> Italian Sausage<br>
+              </div>
+              <div class="col-sm-2">
+                <input type="checkbox" name="toppings" value=" Anchovies"> Anchovies<br>
+                <input type="checkbox" name="toppings" value=" Artichoke Hearts"> Artichoke Hearts<br>
+                <input type="checkbox" name="toppings" value=" Canadian Bacon"> Canadian Bacon<br>
+                <input type="checkbox" name="toppings" value=" Black Olives"> Black Olives<br>
+              </div>
+            </div>
           </div>
-          <button class="btn" type="submit" id="anotherPizza">Add Pizza</button>
+          <button class="btn" id="anotherPizza">Add Pizza</button>
         </form>
-        <div id="displayTotal">
+        <div id="displayPizzas">
           <h3>Your Pizza(s):</h3>
           <ul id="userPizzas"></ul>
-          <div class="delete">
-          </div>
+          <button class="btn" id="checkout">Checkout</button>
+          <!-- <div class="delete">
+          </div> -->
+        </div>
+        <div id="displayTotal">
           <h3>Your Total:</h3>
           <p><span class="userTotal"></span></p>
-          <button class="btn" type="submit" id="checkout">Checkout</button>
-        </div>
+          <button class="btn" id="carryout">Carryout</button>
+          <button class="btn" id="delivery">Delivery</button>
+            <p id="carryoutInfo">Your pizza will be ready in 15 minutes. See you then!<br>
+              HOT PIES<br>
+              333 SE 33rd Place<br>
+              Porland, OR 54321
+            </p>
+            <div id="deliveryInfo">
+              <form id="deliveryForm">
+                <div class="form-group">
+                  <label for="name">Your Name:
+                    <input id="name" class="form-control" type="text" required>
+                  </label>
+                  <label for="street">Street Address:
+                    <input id="street" class="form-control" type="text" required>
+                  </label>
+                  <label for="city">City & Zip:
+                    <input id="city" class="form-control" type="text" required>
+                  </label>
+                  <button class="btn" id="orderDelivery">Submit</button>
+                  <p id="deliveryMessage">A Hot Pies delivery driver will be there in 20-40 minutes.</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        
       </main>
     </div>
   </body>
