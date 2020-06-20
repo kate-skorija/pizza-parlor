@@ -70,7 +70,6 @@ $(document).ready(function() {
     userOrder.name = $("#orderName").val();
     document.getElementById("pizzaForm").reset();
     displayPizzas(userOrder);
-    console.log(userOrder);
   });
   $("#checkout").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
@@ -96,11 +95,5 @@ $(document).ready(function() {
     $("span.orderName").text(userOrder.name);
     $(".deliveryMessage").show();
     $("#orderDelivery").hide();
-  });
-  $("h1").click(function() {                                     // UI for clickable header
-    $("#pizzaForm").show();
-    $("#displayPizzas").hide();
-    $("#displayTotal").hide();
-    document.getElementById("pizzaForm").reset();
   });
 });

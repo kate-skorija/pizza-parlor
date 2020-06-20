@@ -36,7 +36,7 @@ Software Requirements:
 
 To Open:
 
-1.  Navigate to the [language-selector respository](https://github.com/kate-skorija/pizza-parlor) or open your terminal
+1.  Navigate to the [pizza-parlor respository](https://github.com/kate-skorija/pizza-parlor) or open your terminal
 
 2. Clone this project using the GitHub button or the command:
 `$ git clone https://github.com/kate-skorija/pizza-parlor.git`
