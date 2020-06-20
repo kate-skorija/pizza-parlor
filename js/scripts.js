@@ -76,7 +76,6 @@ $(document).ready(function() {
     event.preventDefault();
     $("#displayTotal").show();
     $(".userTotal").text("$" + userOrder.orderCost + ".00")
-    $("form").hide();
     $("#pizzaForm").hide();
     $("#checkout").hide();
   });
@@ -98,7 +97,7 @@ $(document).ready(function() {
     $(".deliveryMessage").show();
     $("#orderDelivery").hide();
   });
-  $("h1").click(function(event) {                                     // UI for clickable header
+  $("h1").click(function() {                                     // UI for clickable header
     $("#pizzaForm").show();
     $("#displayPizzas").hide();
     $("#displayTotal").hide();

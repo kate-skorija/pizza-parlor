@@ -105,12 +105,17 @@ footer {
   padding: 50px 50px 50px 0;
   font-size: 25px;
   font-family: 'Do Hyeon', sans-serif;
-  background-color: lightpink;
+  background-color: khaki;
 }
 
 /* Media Queries */
 @media screen and (max-width: 570px) {
   img {
     display: none;
+  }
+
+  .hooray {
+    font-size: 25px;
+    font-family: 'Do Hyeon', sans-serif;
   }
 }
