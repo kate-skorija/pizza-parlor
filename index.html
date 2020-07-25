@@ -13,19 +13,27 @@
   <body>
     <div class="container-fluid">
       <header>
-        <div class="content">
+        <div class="content header">
           <h1>Hot Pies<img class="img-fluid" src="img/mushroom2.jpg" alt="mushroom"></h1>
           <p>Order your favorite hot pies for carryout or delivery.</p>
         </div>
       </header>
       <main>
         <div class="content">
+          <div id="displayPizzas">
+            <h2>Your Pizza(s):</h2>
+            <ul id="userPizzas"></ul>
+            <button class="btn" id="checkout">Checkout</button>
+          </div>
+          <div id="addAnother">
+            <h2>Add Another Pizza:</h2>
+          </div>
           <form id="name">
             <div class="form-group">
               <label id="customerName" for="name">Order Name:
                 <input id="orderName" class="form-control" type="text" required>
               </label>
-          </div>
+            </div>
           </form>
           <form id="pizzaForm">
             <div class="form-group">
@@ -79,11 +87,6 @@
             </div>
             <button class="btn" id="anotherPizza">Add Pizza</button>
           </form>
-          <div id="displayPizzas">
-            <h3>Your Pizza(s):</h3>
-            <ul id="userPizzas"></ul>
-            <button class="btn" id="checkout">Checkout</button>
-          </div>
           <div id="displayTotal">
             <h3>Your Total:</h3>
             <p><span class="userTotal"></span></p>
@@ -95,6 +98,7 @@
               <p>HOT PIES<br>
               333 SE 33rd Place<br>
               Porland, OR 54321</p>
+              <button class="btn reset">Place New Order</button>
             </div>
             <div id="deliveryInfo">
               <form id="deliveryForm">
@@ -109,6 +113,7 @@
                   <button class="btn" id="orderDelivery">Submit</button>
                   <p class="deliveryMessage hooray">Order Complete!</p>
                   <p class="deliveryMessage orderInfo">Thanks <span class="orderName"></span>! A Hot Pies delivery driver will be there in 20-40 minutes.</p>
+                  <button class="btn reset">Place New Order</button>
                 </div>
               </form>
             </div>

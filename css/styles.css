@@ -7,6 +7,10 @@
   display: none;
 }
 
+#addAnother {
+  display: none;
+}
+
 #carryoutInfo {
   display: none;
 }

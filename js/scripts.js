@@ -45,6 +45,8 @@ Pizza.prototype.sizeCost = function() {
 // User Interface Logic ------------------
 function displayPizzas(order) {
   $("#displayPizzas").show();
+  $('#addAnother').show();
+  $("#name").hide();
   let pizzasList = $("ul#userPizzas");
   let pizzaInfo = "";
   order.pizzas.forEach(function(pizza) {
@@ -70,6 +72,7 @@ $(document).ready(function() {
     userOrder.name = $("#orderName").val();
     document.getElementById("pizzaForm").reset();
     displayPizzas(userOrder);
+    document.querySelector(".header").scrollIntoView({behavior: 'smooth'});
   });
   $("#checkout").click(function(event) {                              // UI for "Checkout" Button
     event.preventDefault();
@@ -77,23 +80,30 @@ $(document).ready(function() {
     $(".userTotal").text("$" + userOrder.orderCost + ".00")
     $("#pizzaForm").hide();
     $("#checkout").hide();
+    $('#addAnother').hide();
   });
   $("#carryout").click(function(event) {                              // UI for "Carryout" Button  
     event.preventDefault();
     $("span.orderName").text(userOrder.name);
     $("#carryoutInfo").show();
     $("#delivery").hide();
+    document.querySelector("#carryout").scrollIntoView({behavior: 'smooth'});
   });
   $("#delivery").click(function(event) {                              // UI for "Delivery" Button 
     event.preventDefault();
     $("#delivery").hide();
     $("#deliveryInfo").show();
     $("#carryout").hide();
+    document.querySelector("#deliveryInfo").scrollIntoView({behavior: 'smooth'});
   });
   $("#orderDelivery").click(function(event) {                         // UI for "Submit Delivery" Button                  
     event.preventDefault();
     $("span.orderName").text(userOrder.name);
     $(".deliveryMessage").show();
     $("#orderDelivery").hide();
+  });
+  $(".reset").click(function() {
+    location.reload(true);
+    $(window).scrollTop(0);
   });
 });
